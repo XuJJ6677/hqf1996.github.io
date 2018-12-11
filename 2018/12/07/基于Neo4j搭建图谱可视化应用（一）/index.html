@@ -7,17 +7,17 @@
   
   <title>基于Neo4j搭建图谱可视化应用（一） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、产生初始化数据数据结构1.节点论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区 专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区 项目：project_id，authors, name，单位（unit），立项年份，中文关键词，领域，地区（省份代号），类型 人才：expert_id, 人名，职">
+  <meta name="description" content="基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用 一、产生初始化数据数据结构1.节点论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区 专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区 项目：project_id，authors, name，单位（unit），立项年份，中文关">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Neo4j搭建图谱可视化应用（一）">
 <meta property="og:url" content="http://yoursite.com/2018/12/07/基于Neo4j搭建图谱可视化应用（一）/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、产生初始化数据数据结构1.节点论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区 专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区 项目：project_id，authors, name，单位（unit），立项年份，中文关键词，领域，地区（省份代号），类型 人才：expert_id, 人名，职">
+<meta property="og:description" content="基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用 一、产生初始化数据数据结构1.节点论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区 专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区 项目：project_id，authors, name，单位（unit），立项年份，中文关">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-10T04:53:21.915Z">
+<meta property="og:updated_time" content="2018-12-10T04:55:25.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Neo4j搭建图谱可视化应用（一）">
-<meta name="twitter:description" content="一、产生初始化数据数据结构1.节点论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区 专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区 项目：project_id，authors, name，单位（unit），立项年份，中文关键词，领域，地区（省份代号），类型 人才：expert_id, 人名，职">
+<meta name="twitter:description" content="基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用 一、产生初始化数据数据结构1.节点论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区 专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区 项目：project_id，authors, name，单位（unit），立项年份，中文关">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -86,7 +86,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、产生初始化数据"><a href="#一、产生初始化数据" class="headerlink" title="一、产生初始化数据"></a>一、产生初始化数据</h1><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h5 id="1-节点"><a href="#1-节点" class="headerlink" title="1.节点"></a>1.节点</h5><p>论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区</p>
+        <p>基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用</p>
+<h1 id="一、产生初始化数据"><a href="#一、产生初始化数据" class="headerlink" title="一、产生初始化数据"></a>一、产生初始化数据</h1><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h5 id="1-节点"><a href="#1-节点" class="headerlink" title="1.节点"></a>1.节点</h5><p>论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区</p>
 <p>专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区</p>
 <p>项目：project_id，authors, name，单位（unit），立项年份，中文关键词，领域，地区（省份代号），类型</p>
 <p>人才：expert_id, 人名，职称，职位，单位，学历，云词，地区，邮箱，电话，毕业院校，领域</p>
