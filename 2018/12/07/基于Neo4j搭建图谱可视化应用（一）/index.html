@@ -14,10 +14,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用，本节先叙述数据来源以及数据结构，到图数据库的搭建。 一、产生初始化数据数据结构1.节点论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区 专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区 项目：project_id，autho">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-11T03:10:11.223Z">
+<meta property="og:image" content="c:/Users/hqf/AppData/Roaming/Typora/typora-user-images/1544601282636.png">
+<meta property="og:image" content="c:/Users/hqf/AppData/Roaming/Typora/typora-user-images/1544601456159.png">
+<meta property="og:updated_time" content="2018-12-12T07:57:39.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Neo4j搭建图谱可视化应用（一）">
 <meta name="twitter:description" content="基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用，本节先叙述数据来源以及数据结构，到图数据库的搭建。 一、产生初始化数据数据结构1.节点论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区 专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区 项目：project_id，autho">
+<meta name="twitter:image" content="c:/Users/hqf/AppData/Roaming/Typora/typora-user-images/1544601282636.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -97,8 +100,7 @@
 <p>​    项目—-&gt;人才（负责人）<br>​    人才—-&gt;项目（承担）<br>​    单位—-&gt;项目（承担）</p>
 <p>​    人才—-&gt;单位（工作）</p>
 <h5 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h5><p>数据结构为5种节点以及11种关系。</p>
-<h2 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h2><p><strong>专家表</strong></p>
-<table>
+<h2 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h2><h5 id="专家表"><a href="#专家表" class="headerlink" title="专家表"></a>专家表</h5><table>
 <thead>
 <tr>
 <th>node_id:ID</th>
@@ -159,8 +161,7 @@
 <p>其中node_id:ID和:LABEL是很重要的两个标签。</p>
 <p><strong>node_id:ID</strong>表示的是记录的唯一标识，每条记录要求唯一，且在关系表中通过ID来关联节点。</p>
 <p><strong>:LABEL</strong>表示的是表的名称</p>
-<p><strong>论文表</strong></p>
-<table>
+<h5 id="论文表"><a href="#论文表" class="headerlink" title="论文表"></a>论文表</h5><table>
 <thead>
 <tr>
 <th>node_id:ID</th>
@@ -202,8 +203,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>专利表</strong></p>
-<table>
+<h5 id="专利表"><a href="#专利表" class="headerlink" title="专利表"></a>专利表</h5><table>
 <thead>
 <tr>
 <th>node_id:ID</th>
@@ -245,8 +245,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>项目表</strong></p>
-<table>
+<h5 id="项目表"><a href="#项目表" class="headerlink" title="项目表"></a>项目表</h5><table>
 <thead>
 <tr>
 <th>node_id:ID</th>
@@ -285,8 +284,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>单位表</strong></p>
-<table>
+<h5 id="单位表"><a href="#单位表" class="headerlink" title="单位表"></a>单位表</h5><table>
 <thead>
 <tr>
 <th>node_id:ID</th>
@@ -325,8 +323,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>专家论文表</strong></p>
-<table>
+<h5 id="专家论文表"><a href="#专家论文表" class="headerlink" title="专家论文表"></a>专家论文表</h5><table>
 <thead>
 <tr>
 <th>:START_ID</th>
@@ -347,9 +344,227 @@
 </tr>
 </tbody>
 </table>
-<p><strong>专家专利表</strong></p>
-<p><strong>专家项目表</strong></p>
-<p><strong>专家单位表</strong></p>
+<h5 id="专家专利表"><a href="#专家专利表" class="headerlink" title="专家专利表"></a>专家专利表</h5><table>
+<thead>
+<tr>
+<th>:START_ID</th>
+<th>:END_ID</th>
+<th>:TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>000000ef-6d13-4eaf-8361-9ff1a0c40f53</td>
+<td>7fccd160-b7aa-11e6-af90-005056b3f30e</td>
+<td>申请</td>
+</tr>
+<tr>
+<td>00000884-a9f3-4993-8365-f892d43daa8b</td>
+<td>12aa4838-b7ab-11e6-af90-005056b3f30e</td>
+<td>申请</td>
+</tr>
+</tbody>
+</table>
+<h5 id="专家项目表"><a href="#专家项目表" class="headerlink" title="专家项目表"></a>专家项目表</h5><table>
+<thead>
+<tr>
+<th>:START_ID</th>
+<th>:END_ID</th>
+<th>:TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bfdae5fe-0e63-4a8f-890b-c258aa1cfb1f</td>
+<td>944b8083-829a-42c8-87ef-07946de274bc</td>
+<td>承担</td>
+</tr>
+<tr>
+<td>bfdae5fe-0e63-4a8f-890b-c258aa1cfb1f</td>
+<td>e3959c3a-fb37-47c2-b8a6-8aff716d6e04</td>
+<td>承担</td>
+</tr>
+</tbody>
+</table>
+<h5 id="专家单位表"><a href="#专家单位表" class="headerlink" title="专家单位表"></a>专家单位表</h5><table>
+<thead>
+<tr>
+<th>:START_ID</th>
+<th>:END_ID</th>
+<th>:TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>757756fe-c2d1-404e-9cb5-7dd987225095</td>
+<td>58816</td>
+<td>工作</td>
+</tr>
+<tr>
+<td>75775a62-b236-4068-a22d-a4b74f66d713</td>
+<td>33504</td>
+<td>工作</td>
+</tr>
+</tbody>
+</table>
+<h5 id="论文专家表"><a href="#论文专家表" class="headerlink" title="论文专家表"></a>论文专家表</h5><table>
+<thead>
+<tr>
+<th>:START_ID</th>
+<th>:END_ID</th>
+<th>:TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>30257381-fa8a-11e6-b478-005056b3f30e</td>
+<td>c69d90aa-f4f0-4054-bde3-83c6723da0ec</td>
+<td>作者</td>
+</tr>
+<tr>
+<td>30257381-fa8a-11e6-b478-005056b3f30e</td>
+<td>739d8e9d-42ed-492f-9002-b64ef35e058e</td>
+<td>作者</td>
+</tr>
+</tbody>
+</table>
+<h5 id="论文单位表"><a href="#论文单位表" class="headerlink" title="论文单位表"></a>论文单位表</h5><table>
+<thead>
+<tr>
+<th>:START_ID</th>
+<th>:END_ID</th>
+<th>:TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0188f08e-0ca3-11e7-b478-005056b3f30e</td>
+<td>5145</td>
+<td>归属</td>
+</tr>
+<tr>
+<td>0188f2b5-9868-4261-a28f-04c20bdf27e6</td>
+<td>2487</td>
+<td>归属</td>
+</tr>
+</tbody>
+</table>
+<h5 id="专利专家表"><a href="#专利专家表" class="headerlink" title="专利专家表"></a>专利专家表</h5><table>
+<thead>
+<tr>
+<th>:START_ID</th>
+<th>:END_ID</th>
+<th>:TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7fccd160-b7aa-11e6-af90-005056b3f30e</td>
+<td>000000ef-6d13-4eaf-8361-9ff1a0c40f53</td>
+<td>发明人</td>
+</tr>
+<tr>
+<td>12aa4838-b7ab-11e6-af90-005056b3f30e</td>
+<td>00000884-a9f3-4993-8365-f892d43daa8b</td>
+<td>发明人</td>
+</tr>
+</tbody>
+</table>
+<h5 id="专利单位表"><a href="#专利单位表" class="headerlink" title="专利单位表"></a>专利单位表</h5><table>
+<thead>
+<tr>
+<th>:START_ID</th>
+<th>:END_ID</th>
+<th>:TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>02a81712-b7aa-11e6-af90-005056b3f30e</td>
+<td>109130</td>
+<td>申请人</td>
+</tr>
+<tr>
+<td>02a8193e-b7aa-11e6-af90-005056b3f30e</td>
+<td>109131</td>
+<td>申请人</td>
+</tr>
+</tbody>
+</table>
+<h5 id="项目专家表"><a href="#项目专家表" class="headerlink" title="项目专家表"></a>项目专家表</h5><table>
+<thead>
+<tr>
+<th>:START_ID</th>
+<th>:END_ID</th>
+<th>:TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>944b8083-829a-42c8-87ef-07946de274bc</td>
+<td>bfdae5fe-0e63-4a8f-890b-c258aa1cfb1f</td>
+<td>负责人</td>
+</tr>
+<tr>
+<td>e3959c3a-fb37-47c2-b8a6-8aff716d6e04</td>
+<td>bfdae5fe-0e63-4a8f-890b-c258aa1cfb1f</td>
+<td>负责人</td>
+</tr>
+</tbody>
+</table>
+<h5 id="单位专利表"><a href="#单位专利表" class="headerlink" title="单位专利表"></a>单位专利表</h5><table>
+<thead>
+<tr>
+<th>:START_ID</th>
+<th>:END_ID</th>
+<th>:TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>109130</td>
+<td>02a81712-b7aa-11e6-af90-005056b3f30e</td>
+<td>申请</td>
+</tr>
+<tr>
+<td>109131</td>
+<td>02a8193e-b7aa-11e6-af90-005056b3f30e</td>
+<td>申请</td>
+</tr>
+</tbody>
+</table>
+<h5 id="单位项目表"><a href="#单位项目表" class="headerlink" title="单位项目表"></a>单位项目表</h5><table>
+<thead>
+<tr>
+<th>:START_ID</th>
+<th>:END_ID</th>
+<th>:TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2559</td>
+<td>00002051-f413-4908-a4a9-87b76519b398</td>
+<td>承担</td>
+</tr>
+<tr>
+<td>862</td>
+<td>00007cd8-a4da-40b7-a818-52db17a92e16</td>
+<td>承担</td>
+</tr>
+</tbody>
+</table>
+<p>好了，终于列举完了所有的节点表以及关系表。</p>
+<p>导入Neo4j数据库中的数据格式为csv格式的文件，这边我通过python对数据进行处理。主要用到了python中的两个包。一个是MySQLdb，另外一个是csv。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> MySQLdb</span><br><span class="line"><span class="keyword">import</span> csv</span><br></pre></td></tr></table></figure>
+<h1 id="二、数据入库"><a href="#二、数据入库" class="headerlink" title="二、数据入库"></a>二、数据入库</h1><p>我这边是将Neo4j安装在linux服务器下，Neo4j的版本为3.3.3版本，可以访问我的github[<a href="https://github.com/hqf1996/Neo4j3.3.3-.git]进行下载。安装完neo4j后，进入到neo4j的bin目录，输入如下命令。其中，neo4j_data_new为存放数据的文件夹目录。" target="_blank" rel="noopener">https://github.com/hqf1996/Neo4j3.3.3-.git]进行下载。安装完neo4j后，进入到neo4j的bin目录，输入如下命令。其中，neo4j_data_new为存放数据的文件夹目录。</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@amdnode8 bin]<span class="comment"># ./neo4j-admin import --database=graph.db --nodes /neo4j_data_new/paper.csv --nodes /neo4j_data_new/patent.csv --nodes /neo4j_data_new/project.csv --nodes /neo4j_data_new/unit.csv --nodes /neo4j_data_new/expert.csv --relationships /neo4j_data_new/UnitToPatent2.csv --relationships /neo4j_data_new/ExpertToUnit2.csv --relationships /neo4j_data_new/PatentToUnit2.csv --relationships /neo4j_data_new/UnitToProject2.csv --relationships /neo4j_data_new/ExpertToProject2.csv --relationships /neo4j_data_new/ProjectToExpert2.csv --relationships /neo4j_data_new/ExpertToPatent2.csv --relationships /neo4j_data_new/PatentToExpert2.csv --relationships /neo4j_data_new/PaperToUnit2.csv --relationships /neo4j_data_new/ExpertToPaper2.csv --relationships /neo4j_data_new/PaperToExpert2.csv</span></span><br></pre></td></tr></table></figure>
+<p>执行一段时间后，会生成graph.db的数据库文件。此时，重启数据库即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./neo4j restart</span><br></pre></td></tr></table></figure>
+<p>此时，访问7474端口就可以查看新创建的图数据库了。</p>
+<p><img src="C:\Users\hqf\AppData\Roaming\Typora\typora-user-images\1544601282636.png" alt="1544601282636"></p>
+<p>测试查询</p>
+<p><img src="C:\Users\hqf\AppData\Roaming\Typora\typora-user-images\1544601456159.png" alt="1544601456159"></p>
 
       
     </div>
