@@ -16,7 +16,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://hqf1996-1258281483.cos.ap-shanghai.myqcloud.com/1544601282636.png">
 <meta property="og:image" content="https://hqf1996-1258281483.cos.ap-shanghai.myqcloud.com/1544601456159.png">
-<meta property="og:updated_time" content="2018-12-12T11:31:46.807Z">
+<meta property="og:updated_time" content="2018-12-12T11:32:59.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Neo4j搭建图谱可视化应用（一）">
 <meta name="twitter:description" content="基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用，本节先叙述数据来源以及数据结构，到图数据库的搭建。 一、产生初始化数据数据结构1.节点论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区 专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区 项目：project_id，autho">
@@ -557,7 +557,8 @@
 <p>好了，终于列举完了所有的节点表以及关系表。</p>
 <p>导入Neo4j数据库中的数据格式为csv格式的文件，这边我通过python对数据进行处理。主要用到了python中的两个包。一个是MySQLdb，另外一个是csv。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> MySQLdb</span><br><span class="line"><span class="keyword">import</span> csv</span><br></pre></td></tr></table></figure>
-<h1 id="二、数据入库"><a href="#二、数据入库" class="headerlink" title="二、数据入库"></a>二、数据入库</h1><p>我这边是将Neo4j安装在linux服务器下，Neo4j的版本为3.3.3版本，可以访问我的github[<a href="https://github.com/hqf1996/Neo4j3.3.3-.git]" target="_blank" rel="noopener">https://github.com/hqf1996/Neo4j3.3.3-.git]</a> 进行下载。安装完neo4j后，进入到neo4j的bin目录，输入如下命令。其中，neo4j_data_new为存放数据的文件夹目录。</p>
+<h1 id="二、数据入库"><a href="#二、数据入库" class="headerlink" title="二、数据入库"></a>二、数据入库</h1><p>我这边是将Neo4j安装在linux服务器下，Neo4j的版本为3.3.3版本，可以访问我的github进行下载。安装完neo4j后，进入到neo4j的bin目录，输入如下命令。其中，neo4j_data_new为存放数据的文件夹目录。 </p>
+<p>GitHub地址： <a href="https://github.com/hqf1996/Neo4j3.3.3-.git]" target="_blank" rel="noopener">https://github.com/hqf1996/Neo4j3.3.3-.git]</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@amdnode8 bin]<span class="comment"># ./neo4j-admin import --database=graph.db --nodes /neo4j_data_new/paper.csv --nodes /neo4j_data_new/patent.csv --nodes /neo4j_data_new/project.csv --nodes /neo4j_data_new/unit.csv --nodes /neo4j_data_new/expert.csv --relationships /neo4j_data_new/UnitToPatent2.csv --relationships /neo4j_data_new/ExpertToUnit2.csv --relationships /neo4j_data_new/PatentToUnit2.csv --relationships /neo4j_data_new/UnitToProject2.csv --relationships /neo4j_data_new/ExpertToProject2.csv --relationships /neo4j_data_new/ProjectToExpert2.csv --relationships /neo4j_data_new/ExpertToPatent2.csv --relationships /neo4j_data_new/PatentToExpert2.csv --relationships /neo4j_data_new/PaperToUnit2.csv --relationships /neo4j_data_new/ExpertToPaper2.csv --relationships /neo4j_data_new/PaperToExpert2.csv</span></span><br></pre></td></tr></table></figure>
 <p>执行一段时间后，会生成graph.db的数据库文件。此时，重启数据库即可</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./neo4j restart</span><br></pre></td></tr></table></figure>
