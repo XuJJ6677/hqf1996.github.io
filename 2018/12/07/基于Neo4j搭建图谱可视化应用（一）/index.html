@@ -14,13 +14,10 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用，本节先叙述数据来源以及数据结构，到图数据库的搭建。 一、产生初始化数据数据结构1.节点论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区 专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区 项目：project_id，autho">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/12/07/基于Neo4j搭建图谱可视化应用（一）/img/1544601282636.png">
-<meta property="og:image" content="http://yoursite.com/2018/12/07/基于Neo4j搭建图谱可视化应用（一）/E:/blog/source/img/1544601456159.png">
-<meta property="og:updated_time" content="2018-12-12T08:37:04.709Z">
+<meta property="og:updated_time" content="2018-12-12T08:38:01.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Neo4j搭建图谱可视化应用（一）">
 <meta name="twitter:description" content="基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用，本节先叙述数据来源以及数据结构，到图数据库的搭建。 一、产生初始化数据数据结构1.节点论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区 专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区 项目：project_id，autho">
-<meta name="twitter:image" content="http://yoursite.com/2018/12/07/基于Neo4j搭建图谱可视化应用（一）/img/1544601282636.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -562,9 +559,6 @@
 <p>执行一段时间后，会生成graph.db的数据库文件。此时，重启数据库即可</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./neo4j restart</span><br></pre></td></tr></table></figure>
 <p>此时，访问7474端口就可以查看新创建的图数据库了。</p>
-<p><img src="/2018/12/07/基于Neo4j搭建图谱可视化应用（一）/img/1544601282636.png" alt=""></p>
-<p>测试查询</p>
-<p><img src="/2018/12/07/基于Neo4j搭建图谱可视化应用（一）/E:/blog\source\img\1544601456159.png" alt=""></p>
 
       
     </div>
