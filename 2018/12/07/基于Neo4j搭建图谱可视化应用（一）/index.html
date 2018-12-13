@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用，本节先叙述数据来源以及数据结构，到图数据库的搭建。 产生初始化数据数据结构1.节点论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区 专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区 项目：project_id，authors">
+<meta name="description" content="基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用，本节先叙述数据来源以及数据结构，到图数据库的搭建。">
 <meta name="keywords" content="Neo4j">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Neo4j搭建图谱可视化应用（一）">
 <meta property="og:url" content="http://yoursite.com/2018/12/07/基于Neo4j搭建图谱可视化应用（一）/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用，本节先叙述数据来源以及数据结构，到图数据库的搭建。 产生初始化数据数据结构1.节点论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区 专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区 项目：project_id，authors">
+<meta property="og:description" content="基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用，本节先叙述数据来源以及数据结构，到图数据库的搭建。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://hqf1996-1258281483.cos.ap-shanghai.myqcloud.com/1544601282636.png">
 <meta property="og:image" content="https://hqf1996-1258281483.cos.ap-shanghai.myqcloud.com/1544601456159.png">
-<meta property="og:updated_time" content="2018-12-12T13:35:33.288Z">
+<meta property="og:updated_time" content="2018-12-13T01:45:57.390Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Neo4j搭建图谱可视化应用（一）">
-<meta name="twitter:description" content="基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用，本节先叙述数据来源以及数据结构，到图数据库的搭建。 产生初始化数据数据结构1.节点论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区 专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区 项目：project_id，authors">
+<meta name="twitter:description" content="基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用，本节先叙述数据来源以及数据结构，到图数据库的搭建。">
 <meta name="twitter:image" content="https://hqf1996-1258281483.cos.ap-shanghai.myqcloud.com/1544601282636.png">
 
 
@@ -356,6 +356,7 @@
 
       
         <p>基于实验室爬取的专利数据搭建了一个基于Neo4j图数据库的可视化小应用，本节先叙述数据来源以及数据结构，到图数据库的搭建。</p>
+<a id="more"></a>
 <h1 id="产生初始化数据"><a href="#产生初始化数据" class="headerlink" title="产生初始化数据"></a>产生初始化数据</h1><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="1-节点"><a href="#1-节点" class="headerlink" title="1.节点"></a>1.节点</h3><p>论文：paper_id，authors, name，单位（unit），年份，期刊，关键词，领域，地区</p>
 <p>专利：patent_id, name, 申请人（单位），发明人，申请时间，公布时间，领域，类型，地区</p>
 <p>项目：project_id，authors, name，单位（unit），立项年份，中文关键词，领域，地区（省份代号），类型</p>
@@ -1033,7 +1034,10 @@
 
   
 </div>
-
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共1.4k字 |</span>
+</div>
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
